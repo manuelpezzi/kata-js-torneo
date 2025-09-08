@@ -78,4 +78,28 @@ function startTournament() {
     })
     addOutput("Risultato Fase 3: " + JSON.stringify(qualified, null, 2));
 
+    //Fase 4 - Combattimento
+
+    addOutput("Inizio Fase 4 : combattimento. Abbina combattenti consecutivi");
+    let combatatans = [...qualified];
+    if (combatatans.length % 2 !== 0) {
+        const pair = combatatans.splice(0, 2);
+        addOutput(`Numero dispari di qualificati (${combatatans.length}). Aggiungo un Roboto con potenza 5000.`);
+
+        combatatans.push({ name: "Robbotte", power: 5000, weapon: null, weaponPower: 0 });
+    }
+    let pairs = [];
+    while (combatatans.length > 0) {
+        const pair = combatatans.splice(0, 2);
+        addOutput(`Coppia creata: ${pair.map(f => f.name).join(' vs ')}`);
+        pairs.push(pair);
+    }
+    let winners = pairs.map(pair => {
+        const [a, b] = pair;
+        addOutput(`Scontro: ${a.name} (${a.power}) vs ${b.name} (${b.power})`);
+        const winner = b.power > a.power ? b : a;
+        addOutput(`Vincitore: ${winner.name}`);
+        return winner;
+    })
+    addOutput("Risultato Fase 4: " + JSON.stringify(winners, null, 2));
 }
