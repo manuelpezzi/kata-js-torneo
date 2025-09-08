@@ -102,4 +102,11 @@ function startTournament() {
         return winner;
     })
     addOutput("Risultato Fase 4: " + JSON.stringify(winners, null, 2));
+
+    //Fase 5 : Premiazione 
+
+    addOutput("Inizio Fase 5 : Premiazione. Seleziona top 3 vincitori per potenza decrescente.");
+    let sortedWinners = [...winners].sort((a, b) => b.power - a.power);
+    let podium = sortedWinners.slice(0, 3);
+    addOutput("Risultato Finale :" + JSON.stringify(podium, null, 2))
 }
