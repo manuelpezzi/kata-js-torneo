@@ -7,18 +7,33 @@ function startTournament() {
     document.getElementById('output').textContent = '';
 
     const fighters = [
-        { name: 'Goku', power: 15000 },
-        { name: 'Ghoan', power: 12000 },
-        { name: 'Vegeta', power: 13500 },
-        { name: 'Piccolo', power: 8000 },
-        { name: 'Krillin', power: 4000 },
-        { name: 'MajinBu', power: 9500 },
-        { name: 'MrSatan', power: 500 },
-        { name: 'Ghoten', power: 6500 },
-        { name: 'Trunks', power: 6500 },
-        { name: 'GoldFrezeer', power: 11500 }
-    ]
-    const weapons = ["Sword", "Axe", "Bow", "Staff", "Spear", "Dagger", "Sword Z", "Power Pole", "Dimension Sword", "Demon Fork"]
+        { name: 'Freezer', power: 8000 },
+        { name: 'Vegeta', power: 8500 },
+        { name: 'Crilin', power: 500 },
+        { name: 'Mr Satan', power: 50 },
+        { name: 'Junior', power: 6000 },
+        { name: 'Goku', power: 9001 },
+        { name: 'Tensing', power: 450 },
+        { name: 'Videl', power: 300 },
+        { name: 'Bulma', power: 20 },
+        { name: 'C-18', power: 7800 },
+        { name: 'Gohan', power: 8900 },
+        { name: 'Trunks', power: 1250 }
+    ];
+    const weapons = [
+        { name: "Ventaglio della Musa", power: 15 },
+        { name: "Scouter", power: 30 },
+        { name: "Bastone Roshi", power: 60 },
+        { name: "Fagioli Magici", power: 70 },
+        { name: "Katana di Yajirobei", power: 85 },
+        { name: "Spada del Dragone Azzurro", power: 115 },
+        { name: "Armatura Saiyan", power: 145 },
+        { name: "Cannone da braccio", power: 170 },
+        { name: "Nuvola d'oro", power: 200 },
+        { name: "Bastone Nyoi", power: 220 },
+        { name: "Spada Z", power: 235 },
+        { name: "Orecchini Potara", power: 250 }
+    ];
 
 
     //Fase 1 - scelta dell'arma
@@ -34,8 +49,8 @@ function startTournament() {
         }
         const index = Math.floor(Math.random() * availabeWeapons.length);
         const weapon = availabeWeapons[index];
-        addOutput(`${fighter.name}ha scelto ${weapon}.`)
-        return { ...fighter, weapon };
+        addOutput(`${fighter.name}ha scelto ${weapon.name}(potenza arma : ${weapon.power}).`)
+        return { ...fighter, weapon: weapon.name, weaponPower: weapon.power };
 
     });
     addOutput("Risultato Fase 1:" + JSON.stringify(fightersWithWeapons, null, 2));
