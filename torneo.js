@@ -60,9 +60,10 @@ function startTournament() {
 
     addOutput("\nInizio Fase 2: Allenamento. Ogni combattente moltiplica la potenza per un fattore casuale tra 1 e 100.")
     let trainedFighters = fightersWithWeapons.map(fighter => {
+        const totalPower = fighter.power + (fighter.weaponPower || 0);
         const multiplier = Math.floor(Math.random() * 100) + 1;
-        const newPower = fighter.power * multiplier;
-        addOutput(`${fighter.name} si allena: potenza originale ${fighter.power}, fattore ${multiplier}, nuova potenza ${newPower}.`)
+        const newPower = totalPower * multiplier;
+        addOutput(`${fighter.name} si allena: potenza totale originale ${totalPower} (base ${fighter.power} + arma ${fighter.weaponPower || 0}), fattore ${multiplier}, nuova potenza ${newPower}.`);
         return { ...fighter, power: newPower };
 
     })
