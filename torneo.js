@@ -58,7 +58,7 @@ function startTournament() {
 
     // Fase 2 - Allenamento
 
-    addOutput("\nInizio Fase 2: Allenamento. Ogni combattente moltiplica la potenza per un fattore casuale tra 1 e 100.")
+    addOutput("Inizio Fase 2: Allenamento. Ogni combattente moltiplica la potenza per un fattore casuale tra 1 e 100.")
     let trainedFighters = fightersWithWeapons.map(fighter => {
         const totalPower = fighter.power + (fighter.weaponPower || 0);
         const multiplier = Math.floor(Math.random() * 100) + 1;
@@ -68,5 +68,14 @@ function startTournament() {
 
     })
     addOutput("Risultato Fase 2: " + JSON.stringify(trainedFighters, null, 2));
+
+    //Fase 3 - Qualificazione
+    addOutput("Inizio Fase 3 : Qualificazione. Escludi chi ha potenza <5000. ")
+    let qualified = trainedFighters.filter(fighter => {
+        const qualifies = fighter.power >= 5000;
+        addOutput(`${fighter.name} ha potenza ${fighter.power}: ${qualifies ? 'qualificato' : 'escluso'}.`);
+        return qualifies;
+    })
+    addOutput("Risultato Fase 3: " + JSON.stringify(qualified, null, 2));
 
 }
