@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Torneo dokkan</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Torneo mondiale DragonBall</h1>
-    <button onclick="startTournament()">Start</button>
-    <div id="output"></div>
+    <div class="container">
+        <h1 class="fade-in">Torneo dokkan</h1>
+        <button id="startButton" onclick="startTournament()">Start</button>
+        <div id="fightersContainer" class="fighters-container" style="display: none;"></div>
+        <button id="resetButton" style="display: none;" onclick="resetTournament()">Reset</button>
+        <div id="podiumContainer" class="podium-container" style="display: none;">
+            <h2>Podio Finale</h2>
+            <div id="podium">
+                <div class="podium-place pulse" id="first">
+                    <h3>1° Posto</h3>
+                    <p></p>
+                </div>
+                <div class="podium-place pulse" id="second">
+                    <h3>2° Posto</h3>
+                    <p></p>
+                </div>
+                <div class="podium-place pulse" id="third">
+                    <h3>3° Posto</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="torneo.js"></script>
 </body>
 
